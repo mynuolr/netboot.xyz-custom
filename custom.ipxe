@@ -10,8 +10,8 @@ goto custom_exit
 
 :custom_exit
 imgfree
-kernel https://releases.rancher.com/harvester/v1.0.0/harvester-v1.0.0-vmlinuz-amd64 ip=dhcp console=ttyS0 console=tty1 rd.cos.disable root=live:https://releases.rancher.com/harvester/v1.0.0/harvester-v1.0.0-rootfs-amd64.squashfs rd.noverifyssl
+kernel http://releases.rancher.com/harvester/v1.0.0/harvester-v1.0.0-vmlinuz-amd64 ip=dhcp console=ttyS0 console=tty1 rd.cos.disable root=live:http://releases.rancher.com/harvester/v1.0.0/harvester-v1.0.0-rootfs-amd64.squashfs rd.noverifyssl
 
-initrd https://releases.rancher.com/harvester/v1.0.0/harvester-v1.0.0-initrd-amd64
+initrd http://releases.rancher.com/harvester/v1.0.0/harvester-v1.0.0-initrd-amd64
 boot
 exit 0
