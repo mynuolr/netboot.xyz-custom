@@ -9,9 +9,9 @@ echo Hcc2rld!
 set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/24.04-dac09526/
 set ubuntu_iso_url https://releases.ubuntu.com/noble/ubuntu-24.04-desktop-amd64.iso
 echo Loading Ubuntu Subiquity Network Installer...
-echo ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 url=${ubuntu_iso_url} initrd=initrd.magic ${cmdline}
+echo ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 url=${ubuntu_iso_url} boot= initrd=initrd.magic ${cmdline}
 echo ${kernel_url}initrd
-read
+read aaaa
 kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 url=${ubuntu_iso_url} initrd=initrd.magic ${cmdline}
 initrd ${kernel_url}initrd
 boot
