@@ -1,5 +1,5 @@
 #!ipxe
-set Url https://github.com/mynuolr/netboot.xyz-custom/releases/download
+set Url https://c1v-web.884096.xyz/d/guest/iso/ubuntu/
 menu Ubuntu
 item --gap --
 item server_24_04 Server 24.04
@@ -13,13 +13,13 @@ goto ${version}
 :server_24_04_dhcp
 set iparams ip=dhcp url=https://releases.ubuntu.com/noble/ubuntu-24.04-live-server-amd64.iso
 :server_24_04
-set kernel_url ${Url}/ubuntu-24.04-server
+set kernel_url ${Url}/server
 goto start
 
 :desktop_24_04_dhcp
 set iparams ip=dhcp  url=https://releases.ubuntu.com/noble/ubuntu-24.04-desktop-amd64.iso
 :desktop_24_04
-set kernel_url ${Url}/Ubuntu-24.04-Desktop
+set kernel_url ${Url}/desktop
 goto start
 
 :start
