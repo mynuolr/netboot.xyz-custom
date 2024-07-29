@@ -19,14 +19,12 @@ goto start
 :desktop_24_04_dhcp
 set iparams ip=dhcp  url=https://releases.ubuntu.com/noble/ubuntu-24.04-desktop-amd64.iso
 :desktop_24_04
-set kernel_url ${Url}/Ubuntu-24.04-Desktop/
+set kernel_url ${Url}/Ubuntu-24.04-Desktop
 goto start
 
 :start
-echo ${iparams}
 echo Loading Ubuntu Subiquity Network Installer...
-echo Kernel
-echo ${kernel_url}vmlinuz
+echo ${iparams}
 kernel ${kernel_url}/vmlinuz root=/dev/ram0 ramdisk_size=1500000  initrd=initrd.magic ${iparams} 
 initrd ${kernel_url}/initrd
-shell
+boot
