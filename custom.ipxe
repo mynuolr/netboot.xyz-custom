@@ -27,6 +27,6 @@ echo ${iparams}
 echo Loading Ubuntu Subiquity Network Installer...
 echo Kernel
 echo ${kernel_url}vmlinuz
-kernel ${kernel_url}/vmlinuz root=/dev/ram0 ramdisk_size=1500000  initrd=initrd.magic ${ipP} ${isoURl}
+kernel ${kernel_url}/vmlinuz root=/dev/ram0 ramdisk_size=1500000  initrd=initrd.magic ${iparams} 
 initrd ${kernel_url}/initrd
 shell
