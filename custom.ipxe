@@ -1,19 +1,32 @@
 #!ipxe
-###
-### netboot.xyz-custom menu
-###
+set Url https://github.com/mynuolr/netboot.xyz-custom/releases/download
+menu Ubuntu
+item --gap --
+item server_24_04 Server 24.04
+item server_24_04_dhcp Server 24.04 Dhcp
+item desktop_24_04 Desktop 24.04
+item desktop_24_04_dhcp Desktop 24.04 Dhcp
+choose version
+goto ${version}
+
+
+:server_24_04_dhcp
+set iparams ip=dhcp url=https://releases.ubuntu.com/noble/ubuntu-24.04-live-server-amd64.iso
+:server_24_04
+set kernel_url ${Url}/ubuntu-24.04-server
+goto start
+
+:desktop_24_04_dhcp
+set iparams ip=dhcp  url=https://releases.ubuntu.com/noble/ubuntu-24.04-desktop-amd64.iso
+:desktop_24_04
+set kernel_url ${Url}/Ubuntu-24.04-Desktop/
+goto start
 
 :start
-echo Hcc2rld!
-
-set kernel_url ${live_endpoint}/ubuntu-squash/releases/download/24.04-dac09526/
-set ubuntu_iso_url https://releases.ubuntu.com/noble/ubuntu-24.04-desktop-amd64.iso
+echo ${iparams}
 echo Loading Ubuntu Subiquity Network Installer...
-echo ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 url=${ubuntu_iso_url} initrd=initrd.magic ${cmdline}
-echo ${kernel_url}initrd
-read aaaa
-kernel ${kernel_url}vmlinuz root=/dev/ram0 ramdisk_size=1500000 url=${ubuntu_iso_url}  ${cmdline}
-initrd ${kernel_url}initrd
-boot
-
-exit 0
+echo Kernel
+echo ${kernel_url}vmlinuz
+kernel ${kernel_url}/vmlinuz root=/dev/ram0 ramdisk_size=1500000  initrd=initrd.magic ${ipP} ${isoURl}
+initrd ${kernel_url}/initrd
+shell
