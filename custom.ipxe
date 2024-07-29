@@ -25,6 +25,8 @@ goto start
 :start
 echo Loading Ubuntu Subiquity Network Installer...
 echo ${iparams}
+
 kernel ${kernel_url}/vmlinuz root=/dev/ram0 ramdisk_size=1500000  initrd=initrd.magic ${iparams} 
 initrd ${kernel_url}/initrd
+read r
 boot
